@@ -62,3 +62,17 @@ f.flush 写入硬盘
 # f.close()
 
 #备份练习
+#
+# f = open(r"D:\pythonProject2\Learning\bill.txt",'r',encoding='UTF-8')
+# g = open(r"D:\pythonProject2\Learning\bill.txt.bak",'w',encoding='UTF-8')
+# for line in f:
+#     line = line.strip()
+#     listline = line.split(",")
+#     if listline[-1]=='正式':
+#         g.write(line)
+#         g.write('\n')
+#     else:
+#         continue
+# f.close()
+# g.close()
+
