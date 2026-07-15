@@ -126,14 +126,34 @@ func(1,3)传了默认的会被覆盖
 可变参数
 位置传递
 """
-#位置传递 元组
-def func (*args):
-    print(args)
-func(1)
-func('as','sd')
+# #位置传递 元组
+# def func (*args):
+#     print(args)
+# func(1)
+# func('as','sd')
 
-#关键字传递 参数是键值对 字典
-def fun(**kwargs):
-    print(kwargs)
-fun(name='as',age='qw')
+# #关键字传递 参数是键值对 字典
+# def fun(**kwargs):
+#     print(kwargs)
+# fun(name='as',age='qw')
+
+# 综合示例：打印用户信息
+def print_user_info(*args, **kwargs):
+    """
+    打印用户信息，结合*args和**kwargs
+    :param args: 爱好列表（可变位置参数）
+    :param kwargs: 用户基本信息（可变关键字参数）
+    """
+    print("===== 用户信息 =====")
+    # 打印基本信息（来自kwargs）
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+    # 打印爱好（来自args）
+    if args:
+        print("爱好:", ", ".join(args))
+    print("===================")
+
+# 调用示例
+print_user_info("篮球", "音乐", "编程", name="小明", age=25, city="北京")
 
