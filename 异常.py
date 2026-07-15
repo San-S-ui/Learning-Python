@@ -42,5 +42,19 @@
 #     print('无异常')
 # finally:
 #     f.close()#有没有异常我都要关闭
-#
 
+#
+# #异常的传递
+# def func1():
+#     a = 1/0
+#     print("这是一个异常")
+# def func2():
+#     print("fun2函数")
+#     func1()
+#     print("fun2结果")
+# def main():
+#     try:
+#         func2()
+#     except Exception as b:
+#         print(b)
+# main()
