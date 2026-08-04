@@ -45,4 +45,3 @@ phone.write_card()
 phone.control()
 print(phone.name)#(Phone,NFCReader,RemoteControl):先继承谁谁优先
 
-
