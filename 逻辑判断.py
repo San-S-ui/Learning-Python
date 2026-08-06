@@ -162,4 +162,3 @@ for i in range(20):
     else:
         print("工资发完了")
         break
-

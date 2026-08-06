@@ -1,0 +1,20 @@
+from pyspark import SparkContext, SparkConf
+import os
+os.environ['PYSPARK_PYTHON'] = 'F:/360Downloads/Anaconda3/python.exe'
+conf = SparkConf().setMaster("local[*]").setAppName("test_spark")
+sc = SparkContext(conf=conf)
+
+# 1. 读取数据文件
+rdd = sc.textFile(r"D:\pythonProject2\Learning\PySpark\data\hello.txt")
+# 2. 取出全部单词
+word_rdd = rdd.flatMap(lambda x: x.split(" "))
+# 3. 将所有单词都转换成二元元组，单词为Key，value设置为1
+word_with_one_rdd = word_rdd.map(lambda word: (word, 1))
+# 4. 分组并求和
+result_rdd = word_with_one_rdd.reduceByKey(lambda a, b: a + b)
+# 5. 对结果进行排序
+final_rdd = result_rdd.sortBy(lambda x: x[1], ascending=True, numPartitions=1)#True是升序（从小到大）
+print(final_rdd.collect())
+
+
+
